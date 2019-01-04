@@ -24,9 +24,8 @@ public class Livro implements Serializable {
 	private String titulo;
 	private String isbn;
 	private double preco;
-	
 	@Temporal(TemporalType.DATE)
-	private Calendar dataLancamento;
+	private Calendar dataLancamento = Calendar.getInstance();
 
 	@ManyToMany
 	private List<Autor> autores = new ArrayList<Autor>();
@@ -80,14 +79,6 @@ public class Livro implements Serializable {
 
 	public void setDataLancamento(Calendar dataLancamento) {
 		this.dataLancamento = dataLancamento;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public void setAutores(List<Autor> autores) {
-		this.autores = autores;
 	}
 
 }

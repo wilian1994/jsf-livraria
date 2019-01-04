@@ -21,6 +21,7 @@ public class LivroBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Livro livro = new Livro();
+
 	private Integer autorId;
 
 	public void setAutorId(Integer autorId) {
@@ -50,13 +51,15 @@ public class LivroBean implements Serializable {
 	public void gravarAutor() {
 		Autor autor = new DAO<Autor>(Autor.class).buscaPorId(this.autorId);
 		this.livro.adicionaAutor(autor);
+		System.out.println("Escrito por: " + autor.getNome());
 	}
 
 	public void gravar() {
 		System.out.println("Gravando livro " + this.livro.getTitulo());
 
 		if (livro.getAutores().isEmpty()) {
-			FacesContext.getCurrentInstance().addMessage("autor", new FacesMessage("Livro deve ter pelo menos um autor"));
+			FacesContext.getCurrentInstance().addMessage("autor",
+					new FacesMessage("Livro deve ter pelo menos um Autor."));
 			return;
 		}
 
@@ -64,12 +67,15 @@ public class LivroBean implements Serializable {
 
 		this.livro = new Livro();
 	}
-	
-	public void comecaComDigitoUm(FacesContext context, UIComponent component, Object object){
-		String valor = object.toString();
-		if(!valor.startsWith("1")){
-			throw new ValidatorException(new FacesMessage("Deveria começar com 1"));
-		}
-	}
 
+	public void comecaComDigitoUm(FacesContext fc, UIComponent component,
+			Object value) throws ValidatorException {
+
+		String valor = value.toString();
+		if (!valor.startsWith("1")) {
+			throw new ValidatorException(new FacesMessage(
+					"ISBN deveria comeï¿½ar com 1"));
+		}
+
+	}
 }
