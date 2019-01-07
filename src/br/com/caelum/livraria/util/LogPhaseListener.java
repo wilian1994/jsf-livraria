@@ -9,13 +9,12 @@ public class LogPhaseListener implements PhaseListener {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public void afterPhase( PhaseEvent arg0 ) {
-
+	public void afterPhase(PhaseEvent arg0) {
 	}
 
 	@Override
-	public void beforePhase( PhaseEvent event ) {
-		System.out.println( "FASE: " + event.getPhaseId() );
+	public void beforePhase(PhaseEvent event) {
+		System.out.println("FASE: " + event.getPhaseId());
 	}
 
 	@Override
