@@ -13,33 +13,32 @@ public class Autorizador implements PhaseListener {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public void afterPhase( PhaseEvent event ) {
+	public void afterPhase(PhaseEvent evento) {
 
-		FacesContext context = event.getFacesContext();
+		FacesContext context = evento.getFacesContext();
 		String nomePagina = context.getViewRoot().getViewId();
-
-		System.out.println( nomePagina );
-
-		if ( "/login.xhtml".equals( nomePagina ) ) {
+	
+		System.out.println(nomePagina);
+		
+		if("/login.xhtml".equals(nomePagina)) {
 			return;
 		}
-
-		// VERIFICA SE O USUÁRIO ESTÁ LOGADO
-		Usuario usuarioLogado = (Usuario) context.getExternalContext().getSessionMap().get( "usuarioLogado" );
-
-		if ( usuarioLogado != null ) {
+		
+		Usuario usuarioLogado = (Usuario) context.getExternalContext().getSessionMap().get("usuarioLogado");
+		
+		if(usuarioLogado != null) {
 			return;
 		}
-
-		// SE NÃO ESTIVER RETORNA PARA PÁGINA DE LOGIN
+		
+		//redirecionamento para login.xhtml
+		
 		NavigationHandler handler = context.getApplication().getNavigationHandler();
-		handler.handleNavigation( context, null, "/login?faces-redirect=true" );
-
+		handler.handleNavigation(context, null, "/login?faces-redirect=true");
 		context.renderResponse();
-	}
-	@Override
-	public void beforePhase( PhaseEvent arg0 ) {
+	} 
 
+	@Override
+	public void beforePhase(PhaseEvent event) {
 	}
 
 	@Override

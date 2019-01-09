@@ -16,15 +16,7 @@ public class Usuario implements Serializable {
 	private Integer id;
 	private String email;
 	private String senha;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
+	
 	public String getEmail() {
 		return email;
 	}
@@ -32,7 +24,15 @@ public class Usuario implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
+		public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getSenha() {
 		return senha;
 	}
@@ -40,5 +40,7 @@ public class Usuario implements Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	
 
 }
