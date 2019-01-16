@@ -5,7 +5,7 @@ public class Venda {
 	private Livro livro;
 	private Integer quantidade;
 
-	public Venda( Livro livro, Integer quantidade ) {
+	public Venda(Livro livro, Integer quantidade) {
 		this.livro = livro;
 		this.quantidade = quantidade;
 	}
@@ -14,7 +14,7 @@ public class Venda {
 		return livro;
 	}
 
-	public void setLivro( Livro livro ) {
+	public void setLivro(Livro livro) {
 		this.livro = livro;
 	}
 
@@ -22,7 +22,7 @@ public class Venda {
 		return quantidade;
 	}
 
-	public void setQuantidade( Integer quantidade ) {
+	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
 
